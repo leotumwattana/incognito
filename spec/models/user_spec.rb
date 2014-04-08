@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe User do
 
+  it { should have_many(:events) }
+
   before :each do
     @user = User.create(email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
   end
