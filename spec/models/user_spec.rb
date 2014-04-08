@@ -9,6 +9,7 @@ describe User do
 
   it { should have_many(:events) }
   it { should have_many(:stats) }
+  it { should have_many(:messages) }
 
   describe "email" do
     it "is valid with an email" do

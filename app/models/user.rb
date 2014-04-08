@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :stats
   has_many :events
+  has_many :messages
 
   def self.authenticate(email, password)
     user = User.find_by email: email

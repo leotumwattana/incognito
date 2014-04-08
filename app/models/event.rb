@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
 
   has_many :tasks
+  has_many :messages
 
   def set_defaults
     self.date_time ||= Date.today
