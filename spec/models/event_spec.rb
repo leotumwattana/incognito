@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Event do
 
+  it { should belong_to(:user) }
+
   it "is invalid without a title" do
     event = Event.new
     event.title == ""
