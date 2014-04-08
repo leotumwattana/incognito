@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
 
+  has_many :stats
+
   def self.authenticate(email, password)
     user = User.find_by email: email
     if user and user.authenticate(password)

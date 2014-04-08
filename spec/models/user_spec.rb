@@ -6,6 +6,8 @@ describe User do
     @user = User.create(email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
   end
 
+  it { should have_many(:stats) }
+
   describe "email" do
     it "is valid with an email" do
       expect(@user).to be_valid
