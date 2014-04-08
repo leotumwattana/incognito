@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Task do
-  it {should belong_to(:event)}
+
+  it { should belong_to(:event) }
 
   it 'defaults to uncompleted' do
     @task = Task.new
