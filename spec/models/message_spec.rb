@@ -6,16 +6,13 @@ describe Message do
     @message = Message.new(content: "some message content")
   end
 
-  it { should belong_to(:user) }
-  it { should belong_to(:event) }
-
-  it "is valid with content" do
-    expect(@message).to be_valid
+  describe "associations" do
+    it { should belong_to :user }
+    it { should belong_to :event }
   end
 
-  it "is invalid without content" do
-    @message.content = nil
-    expect(@message).to be_invalid
+  describe "validation" do
+    it { should validate_presence_of :content }
   end
 
 end
