@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+  belongs_to :user
+
   after_initialize :set_defaults
 
   validates :title, presence: true
