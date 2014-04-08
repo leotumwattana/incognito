@@ -4,11 +4,10 @@ class Task < ActiveRecord::Base
 
   validates :name, presence: true
 
+  belongs_to :event
+
   def set_defaults
     self.completed ||= false
+
   end
-
-
 end
-
-
