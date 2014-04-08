@@ -12,6 +12,8 @@ gem 'bcrypt'
 gem 'active_link_to'
 gem 'multi_json'
 gem 'pg'
+gem 'rabl'
+gem 'oj'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
