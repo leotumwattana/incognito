@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
 
   validates :title, presence: true
 
+  has_many :tasks
+
   def set_defaults
     self.date_time ||= Date.today
     self.complete ||= false
