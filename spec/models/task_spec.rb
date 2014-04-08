@@ -6,7 +6,7 @@ describe Task do
     @task = Task.new
   end
 
-  it { should belong_to(:event) }
+  it { should belong_to :event }
 
   it 'defaults to uncompleted' do
     expect(@task.completed).to eq(false)
