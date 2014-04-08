@@ -7,4 +7,6 @@ describe Stat do
     expect(stat.points).to eq 0
   end
 
+  it { should belong_to(:user) }
+
 end
