@@ -2,24 +2,19 @@ require 'spec_helper'
 
 describe User do
 
-
   before :each do
     @user = User.create(email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
   end
 
-  it { should have_many(:events) }
-  it { should have_many(:stats) }
-  it { should have_many(:messages) }
+  describe "associations" do
+    it { should have_many(:events) }
+    it { should have_many(:stats) }
+    it { should have_many(:messages) }
+  end
 
-  describe "email" do
-    it "is valid with an email" do
-      expect(@user).to be_valid
-    end
-
-    it "is invalid without an email" do
-      @user.email = nil
-      @user.save
-      expect(@user).to have(1).error_on(:email)
+  describe "validations" do
+    context "email" do
+      it { should validate_presence_of :email }
     end
   end
 
