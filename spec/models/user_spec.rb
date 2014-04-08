@@ -7,9 +7,9 @@ describe User do
   end
 
   describe "associations" do
-    it { should have_many(:events) }
-    it { should have_many(:stats) }
-    it { should have_many(:messages) }
+    it { should have_many :events }
+    it { should have_many :stats }
+    it { should have_many :messages }
   end
 
   describe "validations" do
