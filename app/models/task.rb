@@ -6,6 +6,8 @@ class Task < ActiveRecord::Base
 
   belongs_to :event
 
+  has_and_belongs_to_many :users
+
   def set_defaults
     self.completed ||= false
 

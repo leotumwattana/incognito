@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
 
+  has_and_belongs_to_many :tasks
   has_many :stats
   has_many :events, :foreign_key => "owner_id"
   has_many :messages
