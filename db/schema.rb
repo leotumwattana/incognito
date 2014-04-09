@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140408051239) do
     t.boolean  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "owner_id"
   end
 
   create_table "messages", force: true do |t|
