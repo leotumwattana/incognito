@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Event do
 
-  it { should have_many(:tasks) }
+  it { should belong_to :user }
+  it { should have_many :tasks }
+  it { should have_many :messages }
 
   it "is invalid without a title" do
     event = Event.new

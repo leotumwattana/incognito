@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   has_and_belongs_to_many :tasks
+  has_many :stats
+  has_many :events
+  has_many :messages
 
   def self.authenticate(email, password)
     user = User.find_by email: email
