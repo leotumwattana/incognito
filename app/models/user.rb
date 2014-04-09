@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   has_many :stats
-  has_many :events
+  has_many :events, :foreign_key => "owner_id"
   has_many :messages
 
   def self.authenticate(email, password)
