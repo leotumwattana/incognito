@@ -7,6 +7,7 @@ describe Task do
   end
 
   it { should belong_to :event }
+  it { should have_and_belong_to_many :users }
 
   it 'defaults to uncompleted' do
     expect(@task.completed).to eq(false)

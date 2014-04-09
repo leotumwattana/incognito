@@ -10,6 +10,7 @@ describe User do
     it { should have_many :events }
     it { should have_many :stats }
     it { should have_many :messages }
+    it { should have_and_belong_to_many :tasks }
   end
 
   describe "validations" do
