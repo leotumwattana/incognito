@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :tasks
   has_many :stats
-  has_many :events, :foreign_key => "owner_id"
+  has_many :events, through: :participations
+  has_many :participations
   has_many :messages
 
   def self.authenticate(email, password)

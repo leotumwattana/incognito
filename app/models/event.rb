@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 
-  belongs_to :owner, class_name: :user
+  has_many :users, through: :participations
+  has_many :participations
 
   after_initialize :set_defaults
 

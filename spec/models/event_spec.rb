@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Event do
 
-  it { should belong_to :owner }
+  # it { should belong_to :owner }
+  it { should have_many(:users).through(:participations) }
   it { should have_many :tasks }
   it { should have_many :messages }
 
