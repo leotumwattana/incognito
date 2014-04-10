@@ -7,7 +7,6 @@ describe User do
   end
 
   describe "associations" do
-    # it { should have_many :events }
     it { should have_many(:events).through(:participations) }
     it { should have_many :stats }
     it { should have_many :messages }
