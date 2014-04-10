@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Incognito
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  body
+    #wrap
+      = link_to "Log Out", logout_url, method: :delete, class: "button round"
+
+      main.container.main role="main"
+        == yield
+
+
+
+
+      footer
+        .container
+          .row
+            p.text-muted
+
+              | &bull;
+              | &copy; 2014 Incognito
