@@ -5,7 +5,6 @@ class RegistrationController < ApplicationController
 
   def create
     @user = User.new( user_params )
-    # binding.pry
     if @user.save
       log_user_in( @user, "You are now logged in." )
 
