@@ -11,6 +11,10 @@ Incognito::Application.routes.draw do
   put 'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
+  #register
+  get 'registration' => 'registration#new'
+  post 'registration' => 'registration#create'
+
 
   scope :api do
     resources :users, except: ['new', 'edit']
