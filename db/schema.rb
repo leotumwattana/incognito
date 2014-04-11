@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409065401) do
+ActiveRecord::Schema.define(version: 20140410012009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,7 @@ ActiveRecord::Schema.define(version: 20140409065401) do
     t.boolean  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "massages", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "owner_id"
   end
 
   create_table "messages", force: true do |t|
@@ -39,6 +31,13 @@ ActiveRecord::Schema.define(version: 20140409065401) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "participations", force: true do |t|
+    t.boolean "is_owner"
+    t.string  "status"
+    t.integer "user_id"
+    t.integer "event_id"
   end
 
   create_table "stats", force: true do |t|

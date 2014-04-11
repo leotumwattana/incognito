@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 
-  belongs_to :user
+  has_many :users, through: :participations
+  has_many :participations
 
   after_initialize :set_defaults
 
@@ -13,6 +14,4 @@ class Event < ActiveRecord::Base
     self.date_time ||= Date.today
     self.complete ||= false
   end
-
-
 end
