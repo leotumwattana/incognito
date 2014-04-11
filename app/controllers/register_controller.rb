@@ -1,4 +1,4 @@
-class RegisterController < ApplicationController
+class RegistrationController < ApplicationController
 
   def new
   end
