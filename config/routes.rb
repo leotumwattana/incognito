@@ -12,8 +12,8 @@ Incognito::Application.routes.draw do
   patch 'reset/:code' => 'password#update'
 
   #register
-  get 'register' => 'register#new'
-  post 'register' => 'register#create'
+  get 'registration' => 'registration#new'
+  post 'registration' => 'registration#create'
 
 
   scope :api do
