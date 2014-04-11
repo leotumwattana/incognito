@@ -31,10 +31,15 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_code code
-    if user = User.find_by(code: code, :expires_at.gte => Time.now.gmtime)
-      user.set_expiration
+    if @user = User.find_by(:code => code)
+      if @user.expires_at >= Time.now.gmtime
+        @user
+      else
+        nil
+      end
+    else
+      nil
     end
-    user
   end
 
   def set_password_reset
