@@ -2,8 +2,11 @@ doctype html
 html
   head
     title Incognito
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "http://code.jquery.com/jquery-2.1.0.js"
     = csrf_meta_tags
 
   body
@@ -14,9 +17,6 @@ html
       main.container.main role="main"
         == yield
 
-
-
-
       footer
         .container
           .row
@@ -24,3 +24,5 @@ html
 
               | &bull;
               | &copy; 2014 Incognito
+
+    = javascript_include_tag "application"
