@@ -1,27 +1,32 @@
-<h1>Login</h1>
-<div class="nav-bar">
-   <div class="row">
-    <div class="small-4 columns">Hamburger Button</div>
-    <div class="small-4 columns">Title</div>
-    <div class="small-4 columns">Add Button</div>
-  </div>
-</div>
-<div class="login-form">
-  <div class="row">
-    <form action="login" method="login">
-      <div class="small-3 small-centered columns">
-        Email:
-        <input type="text" name="email" />
+<div class="login-page">
+  <h1>Incognito</h1>
+  <div class="login-form row">
+    <form action="login" method="post">
+      <div class="row">
+        <div class="small-8 small-centered columns">
+          <label class="hidden" for="Email">Email:</label>
+          <input type="text" id="Email" name="Email" placeholder="email" />
+        </div>
       </div>
-        <br>
-      <div class="small-3 small-centered columns">
-        Password:
-        <input type="text" name="password" />
+      <div class="row">
+        <div class="small-8 small-centered columns">
+          <label class="hidden" for="Password">Password:</label>
+          <input type="text" id="Password" name="Password" placeholder="password" />
+        </div>
       </div>
-        <br>
-      <div class="small-3 small-centered columns">
-        <input type="submit" value="submit" />
+      <div class="row">
+        <div class="small-2"></div>
+        <div class="small-4 small-offset-2 columns">
+          <a href="#">Sign-up</a>
+        </div>
+        <div class="small-4 columns end">
+          <input id="sign-in" class="right" type="submit" value="Sign-in" />
+        </div>
       </div>
     </form>
   </div>
+
+  <footer>
+    <a href="#">Terms & Conditions</a>
+  </footer>
 </div>

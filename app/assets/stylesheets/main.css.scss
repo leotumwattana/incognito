@@ -6,11 +6,74 @@ $blue-dark: #3194AA;
 
 $green: #A3D658;
 $green-light: #B5DF77;
+$green-extra-light: #E3FDBB;
 $green-dark: #74B973;
 $green-shadow: #68AE00;
 
 body {
-  // background-color: $blue;
+  background-color: $blue;
   // font-family: 'Exo', sans-serif;
   // font-family: 'Open Sans', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo', sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+.login-page {
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 4em;
+  }
+
+  input {
+    border-radius: 5px;
+    border: 1px solid $blue-dark;
+    margin: 5px 0;
+  }
+
+  form {
+    .row:first-of-type {
+      margin-top: 50px;
+    }
+    .row:last-of-type {
+      margin-top: 20px;
+    }
+  }
+
+  a {
+    color: white;
+    padding-top: 16px;
+    padding-left: 15px;
+    display: block;
+    font-size: 1.1em;
+  }
+
+  footer {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -150px;
+    text-align: center;
+  }
+
+  #sign-in {
+    background-color: $green;
+    color: $green-extra-light;
+    border: 1px solid $green-light;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    box-shadow: 0 4px 0 0 $green-dark;
+    font-size: 1.0em;
+    font-weight: 600;
+  }
 }
