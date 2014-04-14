@@ -1,6 +1,6 @@
 Incognito::Application.routes.draw do
 
-  root 'users#index'
+  root 'events#index'
 
 
   get 'login' => 'session#new'
@@ -14,6 +14,10 @@ Incognito::Application.routes.draw do
   #register
   get 'registration' => 'registration#new'
   post 'registration' => 'registration#create'
+
+  #calendar
+  get 'calendars' => 'calendars#index'
+
 
 
   scope :api do
