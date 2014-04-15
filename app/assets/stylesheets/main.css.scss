@@ -13,7 +13,7 @@ $green-shadow: #68AE00;
 body {
   background-color: $blue;
   // font-family: 'Exo', sans-serif;
-  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .hidden {
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.login-page {
+.login-page, .registration-page {
   h1 {
     margin-top: 50px;
     text-align: center;
@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
 
-  #sign-in {
+  #sign-in, #register {
     background-color: $green;
     color: $green-extra-light;
     border: 1px solid $green-light;
