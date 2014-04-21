@@ -3,6 +3,8 @@ class CreateParticipations < ActiveRecord::Migration
     create_table :participations do |t|
       t.boolean :is_owner
       t.string :status
+      t.references :user, index: true
+      t.references :event, index: true
     end
   end
 end

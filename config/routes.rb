@@ -15,9 +15,11 @@ Incognito::Application.routes.draw do
   get 'registration' => 'registration#new'
   post 'registration' => 'registration#create'
 
-
   scope :api do
-    resources :users, except: ['new', 'edit']
-  end
+    resources :users, only: [ :index ]
 
+    resources :events, only: [ :index ] do
+      resources :messages, only: [ :index ]
+    end
+  end
 end
