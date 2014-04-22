@@ -14,4 +14,10 @@ class Event < ActiveRecord::Base
     self.date_time ||= Date.today
     self.complete ||= false
   end
+
+  # alias_method :old_date_time, :date_time
+
+  # def date_time
+  #   # self.send(old_date_time).to_time
+  # end
 end

@@ -10,9 +10,18 @@ html
 
   body
     #wrap
-      = link_to "Log Out", logout_url, method: :delete, class: "button round"
-      = link_to "Register", registration_url, class: "button round"
-
+      .nav-bar.container
+        .small-4.columns
+          ul
+            li = link_to "Log Out", logout_url, method: :delete
+            li = link_to "Register", registration_url
+        .small-4.columns
+          h4#month
+            = link_to "<", date: @date.prev_month
+            = @date.strftime("%B %Y")
+            = link_to ">", date: @date.next_month
+        .small-4.columns
+          = "Plus button"
       main.container.main role="main"
         == yield
 

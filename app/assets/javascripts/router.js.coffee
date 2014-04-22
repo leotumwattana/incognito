@@ -2,9 +2,11 @@ Router = Backbone.Router.extend
   routes:
     'registration': 'showRegistration'
     'login':        'showLogin'
+    'calendar':     'showCalendar'
 
   showLogin: -> @showPage "/login", HandlebarsTemplates['session/new']
   showRegistration: -> @showPage "/registration", HandlebarsTemplates['registration/new']
+  showCalendar: -> @showPage "/calendar", HandlebarsTemplates['calendar/new']
 
   showPage: (url, templateFunc) ->
     $.ajax url,

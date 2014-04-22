@@ -1,0 +1,15 @@
+#events
+  = calendar @date do |date|
+    = date.day
+    / = date.class
+    - if @events_by_date[date]
+      ul
+        - @events_by_date[date].each do |event|
+          li= ""
+
+ul
+  - @events.each do |event|
+    - if event.date_time.year == @date.year
+      - if event.date_time.month == @date.month
+        ul.events
+          =event.title
