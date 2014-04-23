@@ -1,2 +1,2 @@
-rackup faye.ru -s thin -E production
+faye: rackup faye.ru -s thin -E production
 rails: bundle exec rails s

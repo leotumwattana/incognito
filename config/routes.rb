@@ -18,10 +18,15 @@ Incognito::Application.routes.draw do
   #calendar
   get 'calendars' => 'calendars#index'
 
+  get 'messages' => 'messages#index'
 
 
   scope :api do
     resources :users, except: ['new', 'edit']
+
+    resources :events do
+      resources :messages
+    end
   end
 
 end
