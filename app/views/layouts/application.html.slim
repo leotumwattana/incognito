@@ -9,26 +9,32 @@ html
     = csrf_meta_tags
 
   body
-    #wrap
-      .nav-bar.container
-        .small-4.columns
-          ul
-            li = link_to "Log Out", logout_url, method: :delete
-            li = link_to "Register", registration_url
+    #container
+      header
+        #hamburger.small-4.columns
+          = image_tag("hambuger-icon.svg", :alt => "hamburger image")
+
         .small-4.columns
           h4#month
             = link_to "<", date: @date.prev_month
             = @date.strftime("%B %Y")
             = link_to ">", date: @date.next_month
-        .small-4.columns
-          = "Plus button"
-      main.container.main role="main"
-        == yield
+
+        #plusButton.small-4.columns
+          = image_tag("add-icon.svg", :alt => "hamburger image")
+      nav.mobileNav
+        ul
+          li = link_to "Log Out", logout_url, method: :delete
+          li = link_to "Register", registration_url
+
+      #contentLayer
+
+      #content
+        main role="main"
+          == yield
 
       footer
-        .container
-          .row
-            p.text-muted
-
-              | &bull;
-              | &copy; 2014 Incognito
+        .row
+          p.text-muted
+            | &bull;
+            | &copy; 2014 Incognito

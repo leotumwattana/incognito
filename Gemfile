@@ -16,6 +16,7 @@ gem 'rabl'
 gem 'oj'
 gem 'handlebars_assets'
 gem 'foundation-rails'
+gem 'jquery-ui-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
