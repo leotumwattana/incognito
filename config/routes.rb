@@ -2,7 +2,6 @@ Incognito::Application.routes.draw do
 
   root 'events#index'
 
-
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   delete 'logout' => 'session#destroy'
@@ -21,12 +20,14 @@ Incognito::Application.routes.draw do
   get 'messages' => 'messages#index'
 
 
-  scope :api do
-    resources :users, except: ['new', 'edit']
+  scope :api, defaults: { format: :json} do
+    # resources :users, except: ['new', 'edit']
+    resources :users, only:[] do
+      resources :events, only: [ 'index', 'create', 'destroy', 'show']
+    end
 
-    resources :events do
-      resources :messages
+    resources :events, only:[]  do
+      resources :messages, only: [ 'index', 'create' ]
     end
   end
-
 end
