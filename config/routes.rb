@@ -21,7 +21,7 @@ Incognito::Application.routes.draw do
 
 
   scope :api do
-    resources :users
+    resources :users, defaults: { format: :json}
 
     resources :events do
       resources :messages
