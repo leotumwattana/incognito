@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/css?family=Exo:400,500,600,700,800,900);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300);
+
+$gray-light: #F9F9F9;
+
+$blue: #42CBEA;
+$blue-dark: #3194AA;
+
+$green: #A3D658;
+$green-light: #B5DF77;
+$green-extra-light: #E3FDBB;
+$green-dark: #74B973;
+$green-shadow: #68AE00;
+
+#events .calendar {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0px;
+  margin-top: 18px;
+
+  td, th {
+    // font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: top;
+    padding: 15px;
+    // border: 1px solid #999;
+  }
+
+  th {
+    background: $gray-light;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td {
+    background: $gray-light;
+    color: #777;
+    height: 50px;
+    vertical-align: center;
+    font-size: 16px;
+  }
+
+  .notmonth, .notmonth a { color: #CCC; }
+  .today { background-color: #D7F2FF; }
+}
+
+#events #month {
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 22px;
+  vertical-align: middle;
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #999;
+  }
+}
+
+#events ul {
+  font-size: 11px;
+  padding-left: 20px;
+}
+
+#events .event_index_list_date{
+  padding: 12px;
+  padding-left: 20px;
+  background-color: white;
+  // border-radius: 5px;
+  border-top: 2px solid lightgrey;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+#events .event_index_list_title{
+  padding: 12px;
+  padding-left: 20px;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: #464646;
+}
+
+#events .event_index_list_date:first-of-type{
+  border-top: 0;
+}
+
+
+

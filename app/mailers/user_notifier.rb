@@ -16,5 +16,4 @@ class UserNotifier < ActionMailer::Base
     mail to: @user.email, subject: WAS_RESET
   end
 
-
 end

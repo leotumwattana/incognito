@@ -1,0 +1,18 @@
+#events
+  .calendar
+    = calendar @date do |date|
+      div
+      = date.day
+      div
+      - if @events_by_date[date]
+        - @events_by_date[date].each do |event|
+          = "*"
+
+#events
+  - @events.each do |event|
+    - if event.date_time.year == @date.year
+      - if event.date_time.month == @date.month
+        .event_index_list_date
+          = event.date_time.strftime("%A") + " " + event.date_time.strftime("%D")
+        .event_index_list_title
+          = event.title

@@ -13,4 +13,5 @@ class Event < ActiveRecord::Base
     self.date_time ||= Date.today
     self.complete ||= false
   end
+
 end
