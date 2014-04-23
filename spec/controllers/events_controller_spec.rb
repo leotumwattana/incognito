@@ -5,7 +5,7 @@ describe EventsController do
   render_views
 
   before :each do
-    @user = User.create(email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
+    @user = User.create(username: 'kulio', email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
     @junk = Event.create( title: "Junk Trip" )
     @junk.users << @user
   end
