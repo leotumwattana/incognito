@@ -17,7 +17,13 @@ describe EventsController do
     it 'returns a list of events for the user' do
       get :index, user_id: @user.id, format: :json
       expect(response.status).to eq 200
-      expect(JSON.load(response.body)["events"]).to include @junk
+      expect(JSON.load(response.body)["events"]).to include {@junk}
     end
+  end
+
+  describe 'POST create' do
+    # it 'should create an event that has an owner' do
+      # post :create, user_id: @user.id
+    # end
   end
 end
