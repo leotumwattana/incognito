@@ -21,10 +21,10 @@ Incognito::Application.routes.draw do
 
 
   scope :api do
-    resources :users, only: [ :index ]
+    resources :users
 
-    resources :events, only: [ :index ] do
-      resources :messages, only: [ :index ]
+    resources :events do
+      resources :messages
     end
   end
 end
