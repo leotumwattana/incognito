@@ -16,8 +16,12 @@ Incognito::Application.routes.draw do
 
   scope :api, defaults: { format: :json} do
     # resources :users, except: ['new', 'edit']
-    resources :events, except: ['edit'] do
-      resources :messages #except: ['edit', 'update']
+    resources :users, only:[] do
+      resources :events, only: [ 'index', 'create', 'destroy', 'show']
+    end
+
+    resources :events, only:[]  do
+      resources :messages, only: [ 'index', 'create' ]
     end
   end
 end
