@@ -17,11 +17,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = event.new(params[:event])
+    @event = Event.new(event_params)
+
     if @event.save
-      redirect_to @event, notice: "Created event."
+      head :created
     else
-      render :new
+      render text: 'Silly Rabbit, we have no Trix!', status: :unprocessable_entity
     end
   end
 
@@ -36,5 +37,11 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:title, :date_time)
   end
 end

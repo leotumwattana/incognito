@@ -11,9 +11,6 @@ describe EventsController do
   end
 
   describe 'GET index' do
-    it 'should not drive me crazy' do
-      expect(true).to eq true
-    end
     it 'returns a list of events for the user' do
       get :index, user_id: @user.id, format: :json
       expect(response.status).to eq 200
@@ -22,8 +19,9 @@ describe EventsController do
   end
 
   describe 'POST create' do
-    # it 'should create an event that has an owner' do
-      # post :create, user_id: @user.id
-    # end
+    it 'should create an event that has an owner' do
+      post :create, user_id: @user.id, event: {title: "Junk Trip", date_time: "2014-05-05 00:00:00"}
+      expect(response.status).to be < 400
+    end
   end
 end
