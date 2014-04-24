@@ -19,7 +19,8 @@
     <div class="row">
       <div class="small-10 columns">
         <label for="message" class="hide">Message</label>
-        <input type="text" id="message" name="message">
+        {{!-- <input type="text" id="message" name="message"> --}}
+        <textarea name="message[content]" id="message" cols="30" rows="5"></textarea>
       </div>
       <div class="small-2 columns">
         <input id="post-button" type="submit" value="Post">
@@ -29,3 +30,27 @@
 </div>
 
 <script src="javascripts/messages.js"></script>
+<script>
+
+$('#message').textcomplete([
+  { // html
+    hash_tags: ['suggest.location.', 'suggest.date.', 'suggest.task.'],
+    match: /\B#(\w*)$/,
+    search: function (term, callback) {
+      callback($.map(this.hash_tags, function (tag) {
+        return tag.indexOf(term) === 0 ? tag : null;
+      }));
+    },
+      index: 1,
+      replace: function (tag) {
+        return '#' + tag + ' ';
+      }
+    }
+]).overlay([
+  {
+    match: /\B#\w+/g,
+    css: { 'background-color': '#d8dfea' }
+  }
+]);
+
+</script>
