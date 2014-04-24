@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @messages = @event.messages
-    # render json: @messages
   end
 
   def create
@@ -18,14 +17,9 @@ class MessagesController < ApplicationController
     end
   end
 
-
   private
 
   def message_params
     params.require(:message).permit(:user_id, :event_id, :content)
   end
 end
-
-
-#controller tests, create messages, read message,
-#model test: does
