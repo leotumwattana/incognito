@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @messages = @event.messages
+    @messages = @event.messages.order(created_at: :asc)
   end
 
   def create
