@@ -18,6 +18,7 @@
 //= require backbone
 //= require handlebars.runtime
 //= require jquery.textcomplete
+//= require jquery.overlay
 //= require_tree ./templates
 //= require_tree .
 $(function(){ $(document).foundation(); });

@@ -23,6 +23,6 @@ Router = Backbone.Router.extend
         $('body').html(templateFunc())
 
 
-$ ->
+$(document).ready ->
   new Router()
   Backbone.history.start pushState: false
