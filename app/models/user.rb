@@ -9,12 +9,13 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
 
   has_and_belongs_to_many :tasks
-  has_many :stats
+  has_many :stats, dependent: :destroy
   has_many :events, through: :participations
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :messages
 
   def self.authenticate(email, password)

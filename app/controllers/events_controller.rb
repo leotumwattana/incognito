@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+
   def index
     @events = Event.all
     @events_by_date = @events.group_by { |event| event.date_time.to_date }

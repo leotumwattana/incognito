@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before :each do
-    @user = User.create(email: 'kulio@gmail.com', password: '1234', password_confirmation: '1234')
+    @user = User.create(email: 'kulio@gmail.com', username: 'kulio', password: '1234', password_confirmation: '1234')
   end
 
   describe "associations" do
@@ -16,6 +16,10 @@ describe User do
   describe "validations" do
     context "email" do
       it { should validate_presence_of :email }
+    end
+    context "username" do
+      it { should validate_presence_of :username }
+      it { should validate_uniqueness_of(:username).case_insensitive }
     end
   end
 
