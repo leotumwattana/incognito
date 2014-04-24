@@ -9,7 +9,6 @@ describe UsersController do
   end
 
 
-
   describe 'GET index' do
     it 'returns a list of users' do
       get :index, :format => :json

@@ -7,7 +7,8 @@ describe MessagesController  do
   before :each do
     @user = User.create( username: 'joe', email: 'joe@example.com', password: '1', password_confirmation: '1' )
 
-    @event = Event.create( title: 'Junk Boat', date_time: Time.now, user: @user )
+    @event = Event.create( title: 'Junk Boat', date_time: Time.now )
+    @event.user = @user
 
     @message = Message.create( user: @user, event: @event, content: 'Hi there')
   end

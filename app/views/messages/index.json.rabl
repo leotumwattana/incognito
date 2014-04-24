@@ -13,7 +13,7 @@ child @messages, :root => "messages" do
     attributes :id, :title, :date_time
 
     node :href do |event|
-      event_url(event)
+      user_events_url(event)
     end
   end
 
