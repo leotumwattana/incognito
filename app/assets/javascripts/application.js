@@ -17,6 +17,7 @@
 //= require underscore
 //= require backbone
 //= require handlebars.runtime
+//= require moment.min
 //= require_tree ./templates
 //= require_tree .
 $(function(){ $(document).foundation(); });

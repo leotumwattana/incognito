@@ -15,7 +15,7 @@ Incognito::Application.routes.draw do
   post 'registration' => 'registration#create'
 
   #calendar
-  get 'calendars' => 'calendars#index'
+  get 'calendars' => 'calendars#show'
 
   get 'messages' => 'messages#index'
 
@@ -23,7 +23,7 @@ Incognito::Application.routes.draw do
   scope :api, defaults: { format: :json} do
     # resources :users, except: ['new', 'edit']
     resources :users, only:[] do
-      resources :events, only: [ 'index', 'create', 'destroy', 'show']
+      resources :events, only: [ 'index', 'create', 'destroy', 'show', 'new']
     end
 
     resources :events, only:[]  do

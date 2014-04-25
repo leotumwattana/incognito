@@ -10,32 +10,10 @@ html
     = csrf_meta_tags
 
   body
-    #container
-      header
-        #hamburger.small-4.columns
-          = image_tag("hambuger-icon.svg", :alt => "hamburger image")
+    == yield
 
-        .small-4.columns
-          h4#month
-            = link_to "<", date: @date.prev_month
-            = @date.strftime("%B %Y")
-            = link_to ">", date: @date.next_month
-
-        #plusButton.small-4.columns
-          = image_tag("add-icon.svg", :alt => "hamburger image")
-      nav.mobileNav
-        ul
-          li = link_to "Log Out", logout_url, method: :delete
-          li = link_to "Register", registration_url
-
-      #contentLayer
-
-      #content
-        main role="main"
-          == yield
-
-      footer
-        .row
-          p.text-muted
-            | &bull;
-            | &copy; 2014 Incognito
+    footer
+      .row
+        p.text-muted
+          | &bull;
+          | &copy; 2014 Incognito

@@ -1,0 +1,24 @@
+<h1>Create New Event</h1>
+
+<div class="messages-form">
+  <form action="api/users/1/events" method="post">
+    <div class="row">
+      <div>
+        <label for="event" class="hide">Event</label>
+        <input type="text" id="event" name="event[title]" placeholder="Title">
+        <input type="date" id="event" name="event[date_time]" placeholder="Please specify a date">
+      </div>
+      <div>
+        <input id="post-button" type="submit" value="Post">
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  // $( function() {
+  //   $.ajaxSetup
+  // });
+</script>
+
+<!-- <script src="javascripts/events.js"></script> -->

@@ -128,6 +128,7 @@ the hamburger button with a little gradient effekt
     cursor: pointer;
     display: block;
     position: relative;
+    padding-top: 5px;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4569b2', endColorstr='#4062a5',GradientType=0 );
 }
 
@@ -253,3 +254,21 @@ so that the content is unclickable while menu is shown
     background-color: $green;
   }
 }
+
+#nav_date{
+  text-align: center;
+  font-size: 22px;
+  padding-top: 5px;
+}
+
+#previous_month{
+  font-size: 30px;
+}
+
+#next_month{
+  font-size: 30px;
+}
+
+
+
+

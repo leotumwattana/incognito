@@ -1,18 +1,30 @@
-#events
-  .calendar
-    = calendar @date do |date|
-      div
-      = date.day
-      div
-      - if @events_by_date[date]
-        - @events_by_date[date].each do |event|
-          = "*"
+/ #container
+/   header
+/     #hamburger.small-4.columns
+/       = image_tag("hambuger-icon.svg", :alt => "hamburger image")
 
-#events
-  - @events.each do |event|
-    - if event.date_time.year == @date.year
-      - if event.date_time.month == @date.month
-        .event_index_list_date
-          = event.date_time.strftime("%A") + " " + event.date_time.strftime("%D")
-        .event_index_list_title
-          = event.title
+/     .small-4.columns
+/       h4#month
+/         #previous_month_button.small-2.columns
+/           = "<"
+/           / = link_to "<", date: @date.prev_month
+/         #nav_date.small-8.columns
+/           = @date.strftime("%B %Y")
+/         #next_month_button.small-2.columns
+/           /= link_to ">", date: @date.next_month
+
+/     #plusButton.small-4.columns
+/       = image_tag("add-icon.svg", :alt => "hamburger image")
+/   nav.mobileNav
+/     ul
+/       li = link_to "Log Out", logout_url, method: :delete
+/       li = link_to "Register", registration_url
+
+/   #contentLayer
+
+/   #content
+/     main role="main"
+
+    / #event_list
+
+
