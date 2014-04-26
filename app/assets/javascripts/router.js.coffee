@@ -1,10 +1,11 @@
 Router = Backbone.Router.extend
   routes:
-    'registration': 'showRegistration'
-    'login':        'showLogin'
+    'registration':   'showRegistration'
+    'login':          'showLogin'
     # 'calendar':     'showCalendar'
-    'events':       'showEvents'
-    'events/new':   'createEvent'
+    'events':         'showEvents'
+    'events/create':  'createEvent'
+    'events/new':     'newEvent'
 
   showLogin: -> @showPage "/login", HandlebarsTemplates['session/new']
   showRegistration: -> @showPage "/registration", HandlebarsTemplates['registration/new']
@@ -14,6 +15,8 @@ Router = Backbone.Router.extend
 
   showEvents: (user_id) ->
     @showEvent "/api/users/${user_id}/events", HandlebarsTemplates['events/index']
+
+  newEvent: -> @showPage " ", HandlebarsTemplates['events/new']
 
 
   showPage: (url, templateFunc) ->

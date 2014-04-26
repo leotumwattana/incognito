@@ -20,6 +20,7 @@ Incognito::Application.routes.draw do
   get 'messages' => 'messages#index'
 
 
+
   scope :api, defaults: { format: :json} do
     # resources :users, except: ['new', 'edit']
     resources :users, only:[] do
