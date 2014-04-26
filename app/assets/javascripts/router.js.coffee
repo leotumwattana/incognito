@@ -58,5 +58,8 @@ Router = Backbone.Router.extend
 
 
 $(document).ready ->
-  new Router()
+  console.log("WTETJWOEITJWEOIJTIODFSHLSDKFJLSKDFJLSKDF")
+  window.router = new Router()
   Backbone.history.start pushState: false
+  # window.router.navigate('/login')
+  window.location.href = 'http://localhost:3000/#/login'
