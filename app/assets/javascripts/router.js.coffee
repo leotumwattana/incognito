@@ -11,12 +11,16 @@ Router = Backbone.Router.extend
   showLogin: -> @showPage "/login", HandlebarsTemplates['session/new']
   showRegistration: -> @showPage "/registration", HandlebarsTemplates['registration/new']
   indexMessages: (event_id) -> @showPage "http://localhost:3000/api/events/#{event_id}/messages", HandlebarsTemplates['messages/index']
-  createEvent: (user_id) -> @showPage "../api/users/#{user_id}/events/create", HandlebarsTemplates['events/new']
+
+  createEvent: (user_id) -> @showPage "../api/users/#{user_id}/events/create"
 
   showEvents: (user_id) ->
     @showEvent "/api/users/${user_id}/events", HandlebarsTemplates['events/index']
 
   newEvent: -> @showPage " ", HandlebarsTemplates['events/new']
+
+
+  # THE NESTED FUNCTIONS CALLED BY ABOVE
 
   showPage: (url, templateFunc) ->
     $.ajax url,
@@ -48,6 +52,10 @@ Router = Backbone.Router.extend
       error: (x,y,z) ->
         console.log x,y,z
         $('body').html(templateFunc(goodData))
+
+
+
+
 
 $(document).ready ->
   new Router()

@@ -22,7 +22,7 @@
 
     <h1>Create New Event</h1>
       <div class="messages-form">
-        <form action="api/users/1/events" method="post">
+        <form action="http://localhost:3000/api/users/1/events" method="post">
           <div class="row">
             <div>
               <label for="event" class="hide">Event</label>
@@ -42,45 +42,75 @@
 
 
 <script>
-  // HAMBURGER BUTTON ANIMATION CODE
-  //Open the menu
-  $("#hamburger").click(function() {
 
-    //set the width of primary content container -> content should not scale while animating
-    var contentWidth = $('#content').width();
+  $(document).ready(function(){
 
-    //set the content with the width that it has originally
-    $('#content').css('width', contentWidth);
+    $('#post-button').on('click', function(e) {
 
-    //display a layer to disable clicking and scrolling on the content while menu is shown
-    $('#contentLayer').css('display', 'block');
+      var url = 'http://localhost:3000/api/users/' + window.user.id + '/events'
 
-    //disable all scrolling on mobile devices while menu is shown
-    $('#container').bind('touchmove', function(e){e.preventDefault()});
+      $.ajax({
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        data: $('form').serialize(),
+        success: function(data) {
+          console.log("hi");
+        },
+        error: function(x,y,z) {
+          console.log(x,y,z);
+          alert('Error posting message');
+        }
+      });
 
-    // set margin for the whole container with a $ UI animation
-    $("#container").animate({"marginLeft": ["70%", 'easeOutExpo']}, {
-        duration: 700
+      e.preventDefault();
     });
 
-  });
 
-  //close the menu
-  $("#contentLayer").click(function() {
 
-      //enable all scrolling on mobile devices when menu is closed
-      $('#container').unbind('touchmove');
 
-      //set margin for the whole container back to original state with a $ UI animation
-      $("#container").animate({"marginLeft": ["0", 'easeOutExpo']}, {
-          duration: 700,
-          complete: function() {
-                $('#content').css('width', 'auto');
-              $('#contentLayer').css('display', 'none');
 
-          }
+    // HAMBURGER BUTTON ANIMATION CODE
+    //Open the menu
+    $("#hamburger").click(function() {
+
+      //set the width of primary content container -> content should not scale while animating
+      var contentWidth = $('#content').width();
+
+      //set the content with the width that it has originally
+      $('#content').css('width', contentWidth);
+
+      //display a layer to disable clicking and scrolling on the content while menu is shown
+      $('#contentLayer').css('display', 'block');
+
+      //disable all scrolling on mobile devices while menu is shown
+      $('#container').bind('touchmove', function(e){e.preventDefault()});
+
+      // set margin for the whole container with a $ UI animation
+      $("#container").animate({"marginLeft": ["70%", 'easeOutExpo']}, {
+          duration: 700
       });
+
+    });
+
+    //close the menu
+    $("#contentLayer").click(function() {
+
+        //enable all scrolling on mobile devices when menu is closed
+        $('#container').unbind('touchmove');
+
+        //set margin for the whole container back to original state with a $ UI animation
+        $("#container").animate({"marginLeft": ["0", 'easeOutExpo']}, {
+            duration: 700,
+            complete: function() {
+                  $('#content').css('width', 'auto');
+                $('#contentLayer').css('display', 'none');
+
+            }
+        });
+    });
   });
+
   // $( function() {
   //   $.ajaxSetup
   // });
