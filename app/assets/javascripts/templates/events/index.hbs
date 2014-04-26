@@ -120,14 +120,10 @@
     insert_calendar()
 
 
-    $("#event_list").delegate(".event_item","click", function(e) {
+    $("#event_list").delegate(".event_item", "click", function(e) {
       e.preventDefault();
       var eventID = $(this).data("event-id");
-      console.log(eventID);
-
-      window.location.href = "/#/events/" + eventID;
-
-
+      window.location.href = "http://localhost:3000/#/event/" + eventID;
     })
 
 
