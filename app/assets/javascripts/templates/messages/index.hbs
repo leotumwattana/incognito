@@ -1,28 +1,48 @@
-<h1>Messages</h1>
-
-<div class="messages">
-  {{#each messages}}
-    <div class="message">
-      <div class="user">{{user.username}}</div>
-      <div class="content">{{content}}</div>
+<div id="container">
+  <header>
+    <div id="hamburger" class="small-3 columns">
+      <img src="images/hamburger-icon.svg", alt="hamburger image">
     </div>
-  {{/each}}
-</div>
+    <h4><div class="small-5 columns">{{messages.0.event.title}}</div><h4>
+  </header>
+  <nav class="mobileNav">
+    <ul>
+      <li><a href="/#/events">All Events</a></li>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </nav>
 
-<div class="message-form">
-  <form action="localhost:3000/api/events/messages" method="put">
-    <div class="row">
-      <div class="small-10 columns">
-        <label for="message" class="hide">Message</label>
-        {{!-- <input type="text" id="message" name="message"> --}}
-        <textarea name="message[content]" id="message" cols="30" rows="5"></textarea>
-      </div>
-      <div class="small-2 columns">
-        <input id="post-button" type="submit" value="Post">
-      </div>
+  <div id="contentLayer"></div>
+
+  <div id="content">
+    <h1>Messages</h1>
+
+    <div class="messages">
+      {{#each messages}}
+        <div class="message">
+          <div class="user">{{user.username}}</div>
+          <div class="content">{{content}}</div>
+        </div>
+      {{/each}}
     </div>
-  </form>
-</div>
+
+    <div class="message-form">
+      <form action="localhost:3000/api/events/messages" method="put">
+        <div class="row">
+          <div class="small-10 columns">
+            <label for="message" class="hide">Message</label>
+            {{!-- <input type="text" id="message" name="message"> --}}
+            <textarea name="message[content]" id="message" cols="30" rows="5"></textarea>
+          </div>
+          <div class="small-2 columns">
+            <input id="post-button" type="submit" value="Post">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
 
 <script src="javascripts/messages-textcomplete.js"></script>
 <script src="javascripts/messages-posting.js"></script>
+<script src="javascripts/hamburger.js"></script>
