@@ -4,14 +4,14 @@
     <form action="login" method="post">
       <div class="row">
         <div class="small-8 small-centered columns">
-          <label class="hidden" for="Email">Email:</label>
-          <input type="text" id="Email" name="Email" placeholder="email" />
+          <label class="hidden" for="email">Email:</label>
+          <input type="text" id="email" name="user[email]" placeholder="email" />
         </div>
       </div>
       <div class="row">
         <div class="small-8 small-centered columns">
-          <label class="hidden" for="Password">Password:</label>
-          <input type="text" id="Password" name="Password" placeholder="password" />
+          <label class="hidden" for="password">Password:</label>
+          <input type="text" id="password" name="user[password]" placeholder="password" />
         </div>
       </div>
       <div class="row">
@@ -30,3 +30,24 @@
     <a href="#">Terms & Conditions</a>
   </footer>
 </div>
+
+<script>
+  $(document).ready( function() {
+    $('#sign-in').on('click', function (e) {
+      e.preventDefault();
+
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/login',
+        dataType: 'json',
+        data: $('form').serialize(),
+        success: function(user) {
+          window.user = user
+        },
+        error: function(x,y,z) {
+          alert('Error login');
+        }
+      });
+    });
+  });
+</script>

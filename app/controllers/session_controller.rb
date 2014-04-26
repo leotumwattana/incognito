@@ -10,15 +10,24 @@ class SessionController < ApplicationController
   end
 
   def create
+    # binding.pry
     if params[:user][:password].blank?
       #password reset flow
       PasswordResetter.new(flash).handle_reset_request(user_params)
     else
       #authenticate password flow
-      return if log_user_in( UserAuthenticator.new(session,flash).authenticate_user(user_params) )
+      # return if log_user_in( UserAuthenticator.new(session,flash).authenticate_user(user_params) )
+      user = User.authenticate(params[:user][:email], params[:user][:password])
+      if user
+        # successful login
+        render json: user, status: 201
+      else
+        # fail
+        render text: "Oh nooooooo, silly rabbit we are out of TWIX!", status: 401
+      end
     end
     # (redirect_to root_url and return) if flash.empty?
-    render :new
+    # render :new
   end
 
   def destroy
