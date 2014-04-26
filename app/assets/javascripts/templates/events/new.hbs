@@ -47,7 +47,7 @@
 
     $('#post-button').on('click', function(e) {
 
-      var url = 'http://localhost:3000/api/users/' + $.cookie(user).id + '/events'
+      var url = 'http://localhost:3000/api/users/' + $.cookie("user_id") + '/events'
 
       $.ajax({
         type: 'POST',
