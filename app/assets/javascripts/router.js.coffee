@@ -21,12 +21,15 @@ Router = Backbone.Router.extend
   showPage: (url, templateFunc) ->
     $.ajax url,
       type: 'GET'
-      dataType: 'json'
+      # dataType: 'json'
       success: (data) ->
-        $('body').html(templateFunc(data))
+        if data
+          $('body').html(templateFunc(data))
+        else
+          $('body').html(templateFunc())
       error: (x,y,z) ->
         console.log x,y,z
-        $('body').html(templateFunc(data))
+        $('body').html(templateFunc())
 
   showEvent: (url, templateFunc) ->
     $.ajax url,
