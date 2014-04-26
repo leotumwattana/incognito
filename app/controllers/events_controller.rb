@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     user = User.find(params[:user_id])
     @event = user.events.new(event_params)
     if @event.save
-      head :created
+      render json: @event, status: 201
     else
       render text: 'Silly Rabbit, we have no Trix!', status: :unprocessable_entity
     end
