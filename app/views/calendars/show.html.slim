@@ -1,0 +1,9 @@
+#events
+  .calendar
+    = calendar @date do |date|
+      div
+      = date.day
+      div
+      - if @events_by_date[date]
+        - @events_by_date[date].each do |event|
+          = "*"

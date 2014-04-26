@@ -15,7 +15,7 @@ Incognito::Application.routes.draw do
   post 'registration' => 'registration#create'
 
   #calendar
-  get 'calendars' => 'calendars#index'
+  get 'calendars' => 'calendars#show'
 
   get 'messages' => 'messages#index'
 

@@ -14,12 +14,13 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = event.new
+
   end
 
   def create
-    @event = Event.new(event_params)
 
+    user = User.find(params[:user_id])
+    @event = user.events.new(event_params)
     if @event.save
       head :created
     else

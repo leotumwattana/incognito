@@ -1,0 +1,192 @@
+<div id="container">
+  <header>
+    <div id="hamburger" class="small-3 columns">
+      <img src="images/hamburger-icon.svg", alt="hamburger image">
+    </div>
+    <div class="small-6 columns">
+      <h4 id="month">
+        <div id="previous_month" class="small-2 column"><</div>
+        <div id="nav_date" class="small-8 column">date.month</div>
+        <div id="next_month" class="small-2 column">></div>
+      </h4>
+    </div>
+    <div id="plusButton" class="small-3 columns">
+      <img src="images/add-icon.svg", alt="add icon">
+    </div>
+  </header>
+  <nav class="mobileNav">
+    <ul>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div id="contentLayer"></div>
+
+  <div id="content">
+    <main role="main">
+      <div id="events">
+        <div id="calendar">
+
+        </div>
+      </div>
+
+      <div id="events">
+        <div id="event_list">
+            {{#each events}}
+              <div class="event_index_list_date">{{date_time}}</div>
+              <div class="event_index_list_title">{{title}}</div>
+            {{/each}}
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+
+
+<script>
+
+  window.d = new Date();
+
+  window.monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+
+  $(document).ready(function(){
+
+    var insert_calendar = function(date) {
+
+      $.ajax({
+        url: "http://localhost:3000/calendars",
+        type: "GET",
+        data: {date: date},
+        dataType: "html",
+        success: function(data) {
+          calendarHTML = $(data).find('.calendar').html();
+          $('#calendar').html(calendarHTML);
+        },
+        error: function(x,y,z) {
+
+        }
+      });
+    }
+
+    var insert_event_list = function(user_id, date) {
+
+      var goodData = [];
+
+      $.ajax({
+        url: "/api/users/" + user_id + "/events",
+        type: 'GET',
+        dataType:'json',
+
+        success: function(data){
+
+          console.log(goodData);
+          console.log(data.events.length);
+          console.log(date.getMonth());
+
+          for (var i = 0; i < data.events.length; i++) {
+            if ( parseInt(data.events[i].date_time[6]) ==  date.getMonth()+1) {
+
+              data.events[i].date_time = moment(data.events[i].date_time).format('MMMM Do YYYY');
+              goodData.push(renderEvent(data.events[i]));
+
+            }
+          }
+
+          console.log(goodData);
+
+          var html = '';
+          for (var i = 0; i < goodData.length; i++) {
+            html = html + goodData[i];
+          }
+          console.log(html);
+          $("#event_list").html(html);
+        },
+
+        error: function(x,y,z){
+          console.log(x,y,z);
+        }
+      });
+    }
+
+    var renderEvent = function(event) {
+      html =
+        '<div class="event_index_list_date">' + event.date_time + '</div>' +
+        '<div class="event_index_list_title">' + event.title + '</div>' + '</div>'
+      ;
+      return html;
+    }
+
+
+    insert_calendar()
+
+    //NAV BAR MONTH BUTTONS
+    $('#nav_date').html(monthNames[d.getMonth()]);
+
+    $("#next_month").click(function() {
+      d.setMonth(d.getMonth()+1);
+      $('#nav_date').html(monthNames[d.getMonth()]);
+      // d = moment(d).add('months', 1);
+      // $('#nav_date').html(monthNames[moment(d).get('month')]);
+      insert_calendar(d);
+      insert_event_list("1", d);
+
+    });
+
+
+    $("#previous_month").click(function() {
+      d.setMonth(d.getMonth()-1);
+      $('#nav_date').html(monthNames[d.getMonth()]);
+      insert_calendar(d);
+      insert_event_list("1", d);
+    });
+
+
+
+
+
+    // HAMBURGER BUTTON ANIMATION CODE
+    //Open the menu
+    $("#hamburger").click(function() {
+
+      //set the width of primary content container -> content should not scale while animating
+      var contentWidth = $('#content').width();
+
+      //set the content with the width that it has originally
+      $('#content').css('width', contentWidth);
+
+      //display a layer to disable clicking and scrolling on the content while menu is shown
+      $('#contentLayer').css('display', 'block');
+
+      //disable all scrolling on mobile devices while menu is shown
+      $('#container').bind('touchmove', function(e){e.preventDefault()});
+
+      // set margin for the whole container with a $ UI animation
+      $("#container").animate({"marginLeft": ["70%", 'easeOutExpo']}, {
+          duration: 700
+      });
+
+    });
+
+    //close the menu
+    $("#contentLayer").click(function() {
+
+        //enable all scrolling on mobile devices when menu is closed
+        $('#container').unbind('touchmove');
+
+        //set margin for the whole container back to original state with a $ UI animation
+        $("#container").animate({"marginLeft": ["0", 'easeOutExpo']}, {
+            duration: 700,
+            complete: function() {
+                  $('#content').css('width', 'auto');
+                $('#contentLayer').css('display', 'none');
+
+            }
+        });
+    });
+  });
+
+</script>
+
