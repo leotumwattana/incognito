@@ -42,7 +42,7 @@
         dataType: 'json',
         data: $('form').serialize(),
         success: function(user) {
-          window.user = user
+          $.cookie('user', user)
           window.location.href = 'http://localhost:3000/#/events';
         },
         error: function(x,y,z) {

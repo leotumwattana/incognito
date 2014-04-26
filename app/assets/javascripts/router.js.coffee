@@ -56,13 +56,10 @@ Router = Backbone.Router.extend
         console.log x,y,z
         $('body').html(templateFunc(goodData))
 
-
-
-
-
 $(document).ready ->
   console.log("WTETJWOEITJWEOIJTIODFSHLSDKFJLSKDFJLSKDF")
   window.router = new Router()
   Backbone.history.start pushState: false
-  # window.router.navigate('/login')
-  window.location.href = 'http://localhost:3000/#/login'
+
+  unless $.cookie("user")
+    window.location.href = 'http://localhost:3000/#/login'
