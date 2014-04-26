@@ -88,5 +88,11 @@ $green-shadow: #68AE00;
   border-top: 0;
 }
 
+#events .event_item {
+  border-top: 2px solid lightgrey;
+}
 
+#events #event_item:first-of-type{
+  border-top: 0;
+}
 
