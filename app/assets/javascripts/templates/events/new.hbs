@@ -22,7 +22,7 @@
 
     <h1>Create New Event</h1>
       <div class="messages-form">
-        <form action="http://localhost:3000/api/users/1/events" method="post">
+        <form action="http://localhost:3000/api/users/4/events" method="post">
           <div class="row">
             <div>
               <label for="event" class="hide">Event</label>
@@ -46,8 +46,8 @@
   $(document).ready(function(){
 
     $('#post-button').on('click', function(e) {
-
-      var url = 'http://localhost:3000/api/users/' + $.cookie(user).id + '/events'
+      e.preventDefault();
+      var url = 'http://localhost:3000/api/users/' + $.cookie('user_id') + '/events'
 
       $.ajax({
         type: 'POST',
@@ -55,7 +55,9 @@
         dataType: 'json',
         data: $('form').serialize(),
         success: function(data) {
-          console.log("hi");
+          console.log(data);
+          window.location.href = 'http://localhost:3000/#/event/' + data.id;
+
         },
         error: function(x,y,z) {
           console.log(x,y,z);
@@ -63,7 +65,7 @@
         }
       });
 
-      e.preventDefault();
+
     });
 
 

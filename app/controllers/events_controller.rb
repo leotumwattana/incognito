@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
     user = User.find(params[:user_id])
     @event = user.events.new(event_params)
+    @message = Message.create( user: user, event: @event, content: "It's a great day for hanging with friends!")
     if @event.save
       render json: @event, status: 201
     else
