@@ -1,5 +1,5 @@
 <div class="login-page">
-  <h1>Incognito</h1>
+  <h1>Textical</h1>
   <div class="login-form row">
     <form action="login" method="post">
       <div class="row">
@@ -33,6 +33,15 @@
 
 <script>
   $(document).ready( function() {
+
+    var log_user_in = function() {
+      window.location.href = 'http://localhost:3000/#/events';
+    }
+
+    if ($.cookie('user_id')) {
+      log_user_in();
+    }
+
     $('#sign-in').on('click', function (e) {
       e.preventDefault();
 
@@ -42,8 +51,9 @@
         dataType: 'json',
         data: $('form').serialize(),
         success: function(user) {
-          window.user = user
-          window.location.href = 'http://localhost:3000/#/events';
+          $.cookie('user_id', user.id);
+          $.cookie('username', user.username);
+          log_user_in();
         },
         error: function(x,y,z) {
           alert('Error login');

@@ -19,6 +19,7 @@
 //= require handlebars.runtime
 //= require jquery.textcomplete
 //= require jquery.overlay
+//= require jquery.cookie
 //= require moment.min
 //= require_tree ./templates
 //= require_tree .
