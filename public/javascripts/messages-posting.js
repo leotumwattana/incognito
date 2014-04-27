@@ -19,10 +19,20 @@ $(document).ready(
     }
 
     var renderMessage = function(message) {
-      html = '<div class="message">' +
-        '<div class="user">' + message.user_id + '</div>' +
-        '<div class="content">' + message.content + '</div>' +
-      '</div>';
+
+      html = '';
+
+      if (parseInt($.cookie('user_id')) === message.user_id) {
+        html = '<div class="message self">' +
+          '<div class="user">' + message.user.username + '</div>' +
+          '<div class="content">' + message.content + '</div>' +
+        '</div>';
+      } else {
+        html = '<div class="message">' +
+          '<div class="user">' + message.user.username + '</div>' +
+          '<div class="content">' + message.content + '</div>' +
+        '</div>';
+      }
       return html;
     }
 
@@ -35,13 +45,16 @@ $(document).ready(
     var faye = new Faye.Client('http://localhost:9292/faye');
 
     faye.subscribe(channel, function (data) {
+      console.log(data);
       messageView = renderMessage(data);
       appendMessage(messageView);
       scrollMessagesToBottom(true);
     })
 
+    $('#user_id').val($.cookie('user_id'));
     // click handler
     $('#post-button').on('click', function(e) {
+
 
       var url = 'http://localhost:3000/api/events/' + getEventId() + '/messages';
 

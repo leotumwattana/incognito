@@ -8,10 +8,14 @@ class MessagesController < ApplicationController
 
   def create
     @event = Event.find params[:event_id]
+    @user = User.find params[:message][:user_id]
+
+
     if @event
       @message = Message.new(message_params)
       @event.messages << @message
-      render json: @message
+      # binding.pry
+      render json: @message, methods: :user
     else
       head :no_content
     end
