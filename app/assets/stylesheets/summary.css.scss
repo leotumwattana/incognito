@@ -1,0 +1,146 @@
+$gray-light: #F9F9F9;
+$gray-dark: #666;
+
+$blue: #42CBEA;
+$blue-dark: #3194AA;
+
+$green: #A3D658;
+$green-light: #B5DF77;
+$green-extra-light: #E3FDBB;
+$green-dark: #74B973;
+$green-shadow: #68AE00;
+
+$white: #FFFFFF;
+
+.summary-page {
+  #content-summary {
+    padding: 52px 0px 10px 0px;
+    background-color: #FFFFFF;
+    position: relative;
+    width: auto;
+    min-height: 1000px;
+    -webkit-box-shadow:  -10px 0px 9px 0px rgba(0, 0, 0, 0.4);
+    box-shadow:  -10px 0px 9px 0px rgba(0, 0, 0, 0.4);
+  }
+
+  #event-title h2 {
+    color: $blue;
+    font-size: 36px;
+    margin-top: 20px;
+  }
+
+  #event-title h4 {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 35px;
+  }
+
+  .gray-bg {
+    background-color: $gray-light;
+    border-color: $gray-dark;
+    border-width: 1px;
+  }
+
+  .gray-text {
+    color: #666;
+    font-family: 'Exo', sans-serif;
+  }
+
+  .gray-text.large {
+    font-size: 20px;
+  }
+
+  .gray-text.large.center {
+    margin-top: 35px;
+  }
+
+  .gray-text.small {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .button.radius {
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Exo', sans-serif;
+  }
+
+  .button.checked {
+    background-color: $green;
+    border: 1px solid $green;
+    text-align: center;
+  }
+
+  .button.unchecked {
+    background-color: $white;
+    border: 1px solid $blue;
+    color: $blue;
+  }
+
+  .button.maybe {
+    margin-left: 0;
+  }
+
+  .button.date {
+    width: 105px;
+    height: 105px;
+    font-size: 36px;
+    padding-left: 13px;
+  }
+
+  .button.sin {
+    padding-left: 23px;
+  }
+
+  .no-pad {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .white-bg {
+    padding-bottom: 15px;
+  }
+
+  .button.location {
+    width: 340px;
+    text-align: left;
+    padding-left: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .button.first {
+    margin-top: 20px;
+  }
+
+  .summary-profile {
+    padding-top: 20px;
+    padding-bottom: 3px;
+    width: 58px;
+  }
+
+  .vote-loc {
+    padding-right: 0;
+    width: 64%;
+  }
+
+  .profile-loc {
+    width: 36%;
+  }
+
+  .summary-profile.s2 {
+    padding-top: 7px;
+  }
+
+  .right {
+    text-align: right;
+    padding-right: 13px;
+  }
+
+  .pad-below {
+    padding-bottom: 15px;
+  }
+}

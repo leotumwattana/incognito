@@ -7,6 +7,7 @@ Router = Backbone.Router.extend
     'events':         'showEvents'
     'events/create':  'createEvent'
     'events/new':     'newEvent'
+    'summary':        'showSummary'
 
   showLogin: -> @showPage "/login", HandlebarsTemplates['session/new']
   showRegistration: -> @showPage "/registration", HandlebarsTemplates['registration/new']
@@ -19,6 +20,7 @@ Router = Backbone.Router.extend
 
   newEvent: -> @showPage " ", HandlebarsTemplates['events/new']
 
+  showSummary: -> @showPage "/summary", HandlebarsTemplates['summary/show']
 
   # THE NESTED FUNCTIONS CALLED BY ABOVE
 
