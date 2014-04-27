@@ -1,0 +1,122 @@
+<div id="container" class="summary-page">
+  <header>
+    <div id="hamburger" class="small-3 columns">
+      <img src="images/hamburger-icon.svg", alt="hamburger image">
+    </div>
+    <div class="small-6 columns">
+      <h4 id="month">
+        <div id="previous_month" class="small-2 column"><</div>
+        <div id="nav_date" class="small-8 column">date.month</div>
+        <div id="next_month" class="small-2 column">></div>
+      </h4>
+    </div>
+    <div id="plusButton" class="small-3 columns">
+      <a href="/#/events/new"><img src="images/add-icon.svg", alt="add icon"></a>
+    </div>
+  </header>
+  <nav class="mobileNav">
+    <ul>
+      <li><a href="/#/events">All Events</a></li>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div id="contentLayer"></div>
+
+  <div id="content-summary" >
+    <main role="main">
+      <div class="row gray-bg">
+        <div id="event-title" >
+          <div class="small-6 large-5 columns">
+            <h2>Junk Trip</h2>
+          </div>
+          <div class="small-6 large-7 columns right">
+            <h4>BY ML</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="small-4 columns gray-text large center" >ARE YOU JOINING
+        </div>
+        <div class="small-8 columns no-pad">
+          <div class="small-4 columns">
+            <input id="yes" type="submit" value="Yes" class="button radius checked " />
+          </div>
+          <div class="small-4 columns">
+            <input id="yes" type="submit" value="Maybe" class="button radius unchecked maybe" />
+          </div>
+          <div class="small-4 columns">
+            <input id="maybe" type="submit" value="No" class="button radius unchecked" />
+          </div>
+        </div>
+      </div>
+      <div class="row gray-bg" >
+        <div class="small-4 columns gray-text small" >VOTE DATES
+        </div>
+        <div class="large-1 columns no-pad ">
+          <div class="small-3 columns  ">
+            <input type="submit" value="25/4" class="button radius checked date" />
+{{!--             <p class="proposed">PROPOSED</p>
+ --}}          </div>
+          <div class="small-3 columns">
+            <input type="submit" value="26/4" class="button radius checked date" />
+          </div>
+          <div class="small-3 columns">
+            <input type="submit" value="3/5" class="button radius unchecked date sin" />
+          </div>
+          <div class="small-3 columns">
+            <input type="submit" value="4/5" class="button radius unchecked date sin" />
+          </div>
+        </div>
+      </div>
+      <div class="row white-bg" >
+        <div class="small-4 columns gray-text small" >VOTE LOCATION
+        </div>
+        <div class="large-1 columns no-pad ">
+          <div class="small-8 columns vote-loc ">
+            <input type="submit" value="6   Aqua Luna, Stanley" class="button radius checked location first" />
+            <input type="submit" value="3   Jaspas, Central" class="button radius unchecked location " />
+            <input type="submit" value="1   Jubilee, Sai Kung" class="button radius checked location " />
+            <input type="submit" value="0   Jumbo Charters, Tsing Yi" class="button radius unchecked location " />
+          </div>
+          <div class="small-4 columns no-pad profile-loc">
+            <div>
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile">
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile">
+              {{!-- <p>+4</p> --}}
+            </div>
+            <div>
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile s2">
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile s2">
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile s2">
+            </div>
+            <div>
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile s2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row gray-bg pad-below">
+        <div class="small-4 columns gray-text small" >TASKS
+        </div>
+        <div class="large-1 columns no-pad ">
+          <div class="small-8 columns vote-loc ">
+            <input type="submit" value="1   Book the Junk" class="button radius checked location first" />
+            <input type="submit" value="1   Pay deposit" class="button radius unchecked location " />
+            <input type="submit" value="0   Champagne" class="button radius checked location " />
+          </div>
+          <div class="small-4 columns no-pad profile-loc">
+            <div>
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile">
+              {{!-- <p>+4</p> --}}
+            </div>
+            <div>
+              <img src="images/profilepic.svg", alt="profile image" class="summary-profile s2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
