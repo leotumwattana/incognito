@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  # protect_from_forgery with: :null_session
 
   # skip_before_action :verify_authenticity_token
 
@@ -14,6 +15,8 @@ class SessionController < ApplicationController
     if params[:user][:password].blank?
       #password reset flow
       PasswordResetter.new(flash).handle_reset_request(user_params)
+      # render text: "password reset", status: :unprocessable_entity
+
     else
       #authenticate password flow
       # return if log_user_in( UserAuthenticator.new(session,flash).authenticate_user(user_params) )
@@ -28,6 +31,7 @@ class SessionController < ApplicationController
     end
     # (redirect_to root_url and return) if flash.empty?
     # render :new
+
   end
 
   def destroy
