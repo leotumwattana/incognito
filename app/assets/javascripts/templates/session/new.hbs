@@ -1,15 +1,13 @@
 <div class="login-page">
   <h1>Textical</h1>
   <div class="login-form row">
-    <form action="login" method="post">
+    <form id="login-form" action="login" method="post">
       <div class="row">
         <div class="small-8 small-centered columns">
           <label class="hidden" for="email">Email:</label>
           <input type="text" id="email" name="user[email]" placeholder="email" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-8 small-centered columns">
+          <label class="hidden" for="Email">Email:</label>
+          <input type="text" id="user_email" name="user[email]" placeholder="email" />
           <label class="hidden" for="password">Password:</label>
           <input type="password" id="password" name="user[password]" placeholder="password" />
         </div>
@@ -27,7 +25,7 @@
   </div>
 
   <footer>
-    <a href="#">Terms & Conditions</a>
+    <a href="#">Terms &amp; Conditions</a>
   </footer>
 </div>
 

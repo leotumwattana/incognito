@@ -1,4 +1,5 @@
 class RegistrationController < ApplicationController
+  protect_from_forgery with: :null_session
 
   def new
   end
@@ -6,11 +7,11 @@ class RegistrationController < ApplicationController
   def create
     @user = User.new( user_params )
     if @user.save
-      log_user_in( @user, "You are now logged in." )
-
+      log_user_in(@user)
+      # head :ok
+      render json: @user
     else
-      flash.now[:alert] = "Passwords don't match."
-      render :new
+      head :unprocessable_entity
     end
 
   end
@@ -18,7 +19,7 @@ class RegistrationController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
 

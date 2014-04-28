@@ -17,17 +17,19 @@ Incognito::Application.routes.draw do
   #calendar
   get 'calendars' => 'calendars#show'
 
-  get 'messages' => 'messages#index'
+  # get 'calendars' => 'calendars#index'
+
+  # get 'messages' => 'messages#index'
 
   get 'summary' => 'summary#show'
 
   scope :api, defaults: { format: :json} do
-    # resources :users, except: ['new', 'edit']
+
     resources :users do
       resources :events, only: [ 'index', 'create', 'destroy', 'show']
     end
 
-    resources :events, only:[]  do
+    resources :events  do
       resources :messages, only: [ 'index', 'create' ]
     end
   end

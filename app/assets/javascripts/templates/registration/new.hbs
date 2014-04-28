@@ -1,30 +1,30 @@
 <div class="registration-page">
   <h1>Register</h1>
   <div class="registration-form row">
-    <form action="registration" method="post">
+    <form id="registration-form" action="registration" method="post">
       <div class="row">
         <div class="small-8 small-centered columns">
           <label class="hidden" for="Email">Email:
           </label>
-          <input type="text" id="Email" name="Email" placeholder="email" />
+          <input type="text" id="email" name="user[email]" placeholder="email" />
         </div>
       </div>
       <div class="row">
         <div class="small-8 small-centered columns">
           <label class="hidden" for="Username">Username:</label>
-          <input type="text" id="Username" name="Username" placeholder="username" />
+          <input type="text" id="username" name="user[username]" placeholder="username" />
         </div>
       </div>
       <div class="row">
         <div class="small-8 small-centered columns">
           <label class="hidden" for="password">Password:</label>
-          <input type="text" id="Password" name="Password" placeholder="password" />
+          <input type="text" id="password" name="user[password]" placeholder="password" />
         </div>
       </div>
       <div class="row">
         <div class="small-8 small-centered columns">
           <label class="hidden" for="confirmation-password">Password Confirmation:</label>
-          <input type="text" id="Password Confirmation" placeholder="password confirmation" />
+          <input type="text" id="password_confirmation" name="user[password_confirmation]" placeholder="password confirmation" />
         </div>
       </div>
       <div class="row">
@@ -41,7 +41,7 @@
 </div>
 
 
-
+<script src="javascripts/registration.js" type="text/javascript" charset="utf-8"></script>
 
 
 

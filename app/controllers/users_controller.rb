@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # render json: @users
   end
 
   def show
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @users = User.new(user_params)
     if @users.save
-      render json: @users#, status: :created, location: users_url(@users)
+      render json: @users
     else
       head :unproccessable_entity
     end
